@@ -12,17 +12,26 @@
     
 </head>
 <style>
+
+    .links {
+        color: gray;
+        text-decoration: underline
+    }
     #resumelink {
         margin-left: 33%;
         margin-right:33%;
+        color: gray
     }
 
     #aboutlink {
-        margin-left: 10%
+        margin-left: 10%;
+        color: gray
+        
     }
 
     #contactlink {
-        margin-right: 8%
+        margin-right: 8%;
+        color: gray
     }
     
     .center-image {
@@ -46,13 +55,13 @@
 </style>
 <body>
     <header>
-        <a  id = 'aboutlink' href="about.html">About me</a>
+        <a id = 'aboutlink' href="about.html">About me</a>
         <a id = 'resumelink' href="Resume.pdf"> resume</a>
         <a id = 'contactlink' href="contact.html"> contact</a>
     </header>
     
     <div class="center-image">
-       <h1> Here are some of my projects</h1>
+       <h1 style="font-size:4vw"> Here are some of my projects</h1>
     </div>
     
     <div class="center-image">
@@ -65,8 +74,11 @@
             <div class="center-image"> 
                 <div>
                     <p> Peer into your twitter data with over 15 different intuitive data visualizations</p>
-                    <a href="https://github.com/zumaad/Tweetlyze.info/blob/master/README.md">Learn more </a> |
-                    <a href="http://tweetlyze.info"> Try it out! </a>
+                    <div style="margin-bottom:30px">
+                        <a class = 'links' href="https://github.com/zumaad/Tweetlyze.info/blob/master/README.md">Learn more </a> |
+                        <a class = 'links' href="http://tweetlyze.info"> Try it out! </a>
+                    </div>
+                    
                 </div>
                 
 
