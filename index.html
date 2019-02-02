@@ -17,7 +17,7 @@
         color: gray;
         text-decoration: underline
     }
-    #resumelink {
+    /* #resumelink {
         
         margin-left:50px;
         color: gray
@@ -25,10 +25,10 @@
 
     #aboutlink {
        
-        margin-left: 70%;
+        margin-left: 60%;
         color: gray
         
-    }
+    } */
     
     .center-image {
                 text-align: center;
@@ -43,18 +43,44 @@
         color: black;
         background: white;     
 }
-    header {
+    #header {
         margin-top: 4%;
         margin-bottom: 4%
     }
 
+    
+
 </style>
 <body>
-    <header>
-        <a id = 'aboutlink' href="about.html">About me</a>
-        <a id = 'resumelink' href="Resume.pdf"> My resume</a>
+    <div class = "row" id = 'header'>
         
-    </header>
+        <div class="offset-1"> </div>
+        <div class="col">
+            <div style="display: inline-block;padding-top:0px">
+                <img id = 'profilepic' src="profile.jpeg"> 
+            </div>
+            
+            <div style="display: inline-block">
+                    <p style="margin-bottom:0px;color: gray;"> <i>Khanzumaad@gmail.com</i></p>
+                    <p style="margin-top:0px;margin-bottom:0px;color: gray"> <a style="color: gray" href="https://github.com/zumaad"> <i style="text-decoration:underline">github.com/zumaad</i> </a></p>
+                    <p style="margin-top:0px;margin-bottom:0px;color: gray"> <a style="color: gray" href="https://www.linkedin.com/in/zumaad-khan-629a07177/"> <i style="text-decoration:underline">Linkedin</i> </a></p>
+            </div>
+        </div>
+
+        <div class="offset-2">
+
+        </div>
+
+        
+        
+        <div class="col">
+            <a style="color:gray" href="about.html">About me</a>
+        </div>
+
+        <div class="col">
+            <a style="color:gray" href="Resume.pdf"> My resume</a>
+        </div>
+    </div>
     
     <div class="center-image">
        <h1> Below are some of my projects</h1>
