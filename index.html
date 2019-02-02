@@ -1,16 +1,81 @@
-<header>
-    about
-    contact
-    resume
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zumaad Khan</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/siema@1.5.1/dist/siema.min.js"></script>
+    
+</head>
+<style>
+    #resumelink {
+        margin-left: 33%;
+        margin-right:33%;
+    }
+
+    #aboutlink {
+        margin-left: 10%
+    }
+
+    #contactlink {
+        margin-right: 8%
+    }
+    
+    .center-image {
+                text-align: center;
+            }
+</style>
+<body>
+    <header>
+        <a  id = 'aboutlink' href="about.html">About me</a>
+        <a id = 'resumelink' href="Resume.pdf"> resume</a>
+        <a id = 'contactlink' href="contact.html"> contact</a>
+    </header>
+    
+    <div>
+       
+    </div>
+    
+    <div class="center-image">
+        <button class="prev btn-sm">Prev</button>
+        <button class="next btn-sm">Next</button>
+    </div>
+    <br><br>
+    
+    <div class="siema">
+            <div class="center-image"> 
+                <p> Peer into your twitter data with over 15 different intuitive data visualizations</p>
+
+                <a href="https://github.com/zumaad/Tweetlyze.info/blob/master/README.md">Learn more </a> |
+                <a href="http://tweetlyze.info"> Try it out! </a>
+                <img src = 'twitterGraph.png'> 
+            </div>
+            <div> SchedulingFor.me</div>
+            <div> Virtual Commodity Investor</div>
+            <div> Marino Navigator</div>
+    </div>
+    <script>
+        const mySiema = new Siema();
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+
+        prev.addEventListener('click', () => mySiema.prev());
+        next.addEventListener('click', () => mySiema.next());
+    </script>
+    
 
 
+    
+    
+    
+    
+    
+    <!-- <a href="Tweetlyze.html"> tweetlyze</a> -->
+    
+</body>
 
-<ul>
-    <li> Tweetlyze.info</li>
-    <li> Virtual Commodity Investor</li>
-    <li> Marino Navigator </li>
-    <li> SchedulingFor.me</li>
-</ul>
-
-<a href="Tweetlyze.html"> tweetlyze</a>
+</html>
