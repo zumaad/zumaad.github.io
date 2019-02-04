@@ -32,6 +32,10 @@
         margin-right:7%;
         margin-left:7%
     }
+
+    pre{
+        background: rgb(245, 241, 241)
+    }
 </style>
 
 <body>
@@ -55,6 +59,198 @@
                         <a href="https://youtu.be/o6N8kkfULcQ"> <p>https://youtu.be/o6N8kkfULcQ</p></a>
                         <p>Speech to text at 1:09</p>
                         <p>text to speech at 2:39</p>
+                </div>
+            </div>
+            <div class = nonHeaderSection>
+                    <div class = 'individualSection'>
+                        <h4 class="sectionHeaders"> Why Does it Exist?</h4>
+                        <hr>
+                        <h5 class="sectionHeaders"> Buying from impatient sellers and selling to impatient buyers </h5>
+                        <p>
+                                Runescape is a game with a complex and player driven economy. The main way people trade with others is through an in-game feature called the Grand Exchange (abbreviated to GE). The GE allows players to buy and sell items for the price they set and the only way these offers complete(the item gets sold or bought) is when other players put compatible offers(compatible doesn't mean exactly the same price).<br><br>
+
+                                Due to the natural impatience in wanting to get items and sell items, there arises an opportunity to buy from the impatient sellers and sell to the impatient buyers. But, there are a lot of items you can carry out this very general process with and there is a lot to keep track of when doing this investing. That's where this tool comes in. <br><br>
+                                
+                                Before we delve into the functionality of the app, when investing in runescape in this way, to maximize your profit, these are the main things you need to keep track of:
+                        </p>
+                </div>
+            </div>
+            <div class = nonHeaderSection>
+                    <div class = 'individualSection'>
+                        <h4 class="sectionHeaders"> What you need to keep track of</h4>
+                        <hr>
+                        <ol>
+                            <li>the list of items you want to do.</li>
+                            <li>the buy limit of each item (the GE places a cap on the amount of certain items you can buy every four hours and this cap refreshes 4 hours since you bought the first of the item)</li>
+                            <li>the quantity that you have currently bought and thus how many more of that item can you buy before you hit the cap.</li>
+                            <li>whether you can purchase an item</li>
+                            <li>whether you have already done an item (similiar to above)</li>
+                            <li>when the buy limit refreshes so you can do items you have already done, again.</li>
+                            <li>since you need to know when the buy limit refreshes, you also need to know when you bought the first of that item.</li>
+                            <li>all of the above but for potentially several accounts (if you want to really make money).</li>
+                        </ol>
+                </div>
+            </div>
+            <div class = nonHeaderSection>
+                    <div class = 'individualSection'>
+                        <h4 class="sectionHeaders"> How does the app keep track of all that stuff?</h4>
+                        <hr>
+                        <p>There are two classes in models.py, Account and Item</p>
+                        <p>Account</p>
+                        <pre>
+                            <code>
+        def __init__(self,name):
+            self.name = name
+            self.itemlist = self.initializelist(name)
+                            </code>
+                        </pre>
+                        <p>Item</p>
+                        <pre>
+                            <code>
+        def __init__(self, name, limit,quantity = 0,done = "N",time = None):
+            """
+            Initializes an item object
+    
+            Parameters:
+            name : the name of the item as a string.
+            limit : the amount of times it can be bought in a 4 hour period
+            quantity: the amount of times it has currently been bought.
+            done : whether it has been bought before.
+            time: the time it was first bought.
+            """
+            self.name = name 
+            self.quantity = quantity
+            self.limit = limit
+            self.time = time
+            self.done = done
+                            </code>
+                        </pre>
+                        <p>(1) is kept track of by having the Account class have a field called itemlist in which there are a bunch of Item objects in a list with
+                                each of those Item objects is referring to an item the Account can invest in.</p>
+                        <p>(2) is kept track if by the Item object being initialized with a buy limit(denoted by argument 'limit')</p>
+                        <p>(3) is kept track of by the quantity field in an Item object. The display function (shown below) displays the amount there is left by displaying the 'amount currently bought/buy limit'.</p>
+                        <p>(4) is kept track of by a field in Item called 'done'. The display function displays the item in a different color depending on the status of the item, such as whether it has been 'done' already.</p>
+                        <p>(5) is kept track of by the quantity field in the item as you can't invest in an item if you have hit the buy limit. The display function takes a less specific aproach to this as I make it such that if you purchased more than 50% of an item's buy limit it displays as red, which typically means to me that i won't do it again. There is nothing stopping me from investing in the item again as I haven't hit the buy limit, but i typically don't invest in it again when an item is red because it means that i stopped investing in it prematurely which typically means it isn't going well.</p>
+                        <p>(6) is taken care of by a method in the Account class called refresh.</p>
+                        <pre><code>
+        def refresh(self):
+            """
+            Every four hours the buy limit for an item is reset. This method checks the item list
+            to see if there were items bought &gt; 4 hours ago and if so, clears the times they have 
+            been bought as now they can be bought again, up until the buy limit
+            """
+            currentmin = time.localtime().tm_min
+            currenthour = time.localtime().tm_hour 
+            currentday = time.localtime().tm_mday
+            for item in self.itemlist:
+                if item.done == "Y":
+                    if currentday == item.time.tm_mday:
+                    
+                        if abs((currenthour + (currentmin/60))- (item.time.tm_hour + (item.time.tm_min/60))) &gt;= 4:
+                            item.reset()
+                    else:
+                    
+                        distancefromnextday = 24 - item.time.tm_hour + item.time.tm_min/60
+                        distancefromprevday = currenthour + currentmin/60
+                        if distancefromnextday + distancefromprevday &gt;= 4:
+                            item.reset()
+                        </code></pre>
+                        <p>Refresh is run every time the item lists are displayed (whenever the user wants to see them) and it checks to see for all items the item list, wether the first purchase of that item was greater than or equal to four hours ago. If so, it calls a method in the Item class called reset().</p>
+                        <pre><code>
+        def reset(self):
+            """
+            resets an item by setting the times it was bought to 0 and the field representing
+            wether it has been bought to show it hasn't been bought and the time to none - as it hasn't been bought yet.
+            This method is typically called every four hours, when the buy limit resets.
+            """
+            self.quantity = 0
+            self.done = "N"
+            self.time = None
+                        </code></pre>
+                        <p>(7) is taken care of by the time field in the item object. The time field is only updated when the item is purchased for the first time (so when its quantity is 0) and not for subsequent purchases. So the time field only reflects when you first purchased that item.</p>
+                        <p>(8) is taken care of by the ability to create multiple accounts with different item lists.</p>
+                        
+                </div>
+            </div>
+            <div class = nonHeaderSection>
+                    <div class = 'individualSection'>
+                        <h4 class="sectionHeaders"> Interacting With the App</h4>
+                        <hr>
+                        <p>A user can see and update the itemlists for each account.</p>
+                        <h5 class="sectionHeaders">Updating the ItemLists</h5>
+                        <p>To update the itemlists the user can issue a text command such as "  " bought'
+                                for example, there is an item called AGS and lets say the user bought 8 of them on an account the user named "R".
+                                to update that accounts item list, the user types in "R AGS 8" and bam, the list is updated.</p>
+                        <p>The user can also update the item list using speech to text by issuing a command like " SPEECH" followed by saying outloud what the items were (all the items are initials so you would pronounce AGS not as each individual letter- i set it up this way as there is very little ambiguity and the text to speech analyzer rarely messed up with initials). So, for example this would be the command for an account called R. "R SPEECH" and followed by saying the item intials outloud.</p>
+                        <p>Both methods of updating rely on a method in Item called update.</p>
+                        <pre><code>
+        def update(self,name,quantity="NA"):
+            """
+            updates an item in the item list so its quantity and status reflects the user's input
+        
+            Parameters:
+            name:the name of the item as given in the dictionary that was used to inialize the list.
+            quantity: the amount of items the user inputs. This refers to the amount of that item
+                        the account has purchased.
+            """
+            for item in self.itemlist:
+                if item.name == name:
+                    item.done = "Y"
+                    if item.quantity == 0:
+                        item.time = time.localtime()
+                    item.quantity = item.quantity + int(quantity)
+                         </code></pre>
+                         <p>update changes the appropriate fields of the Item in the itemlist of the appropriate account specified.</p>
+                         <h5 class="sectionHeaders">displaying the itemlists</h5>
+                         <p>The item list can be displayed in two ways.</p>
+                         <p>One, is just issuing the command " DISPLAY"
+                                so, something like "R DISPLAY".Where 'R' denotes the name of the account</p>
+                        <p>The other way to "display" is text to speech by issuing the command " READ"
+                                So, something like "R READ". This results in the items that you haven't currently done for the specified account bieng read
+                                out loud by your computer.</p>
+                        <p>This is what the display looks like:</p>
+                        <img style = 'max-width:70%;height:auto' src='display2.png'>
+                        <br><br>
+                        <ul>
+                                <li>items in green text haven't been purchased yet.</li>
+                                <li>items in red text mean that you have purchased 50% or more of the buy limit</li>
+                                <li>items in magenta mean that you have purchased the item but purchased less than 50% of the buy limit.</li>
+                        </ul>
+                        <p>The time you first bought it is displayed along with the current time and the time that items buy limit refreshes so that you can buy the full quantity again.</p>
+                            
+                    </div>
+            </div>
+            <div class = nonHeaderSection>
+                    <div class = 'individualSection'>
+                        <h4 class="sectionHeaders"> Overview of running and configuring the app</h4>
+                        <hr>
+                        <p>adding your custom list of items: Go to staticvars.py and you will find a map of item initials and their buy limit. Update this however you want. The item initials in this map is how you will refer to the items when you update items.</p>
+                        <p>In main.py you can initialize an account with that itemlist by doing Account(name of the map in staticvars.py).
+                                Then, you can give it a nickname that you can refer to it by in your commands by mapping the nickname to the account in account_map. EX:</p>
+                        <pre><code>account_map = {'R':Account(rich),'M':Account(rich),'P':Account(poor)}
+                            </code></pre>
+                        <p>rich and poor refer to the maps in staticvars.py that you want to have as the itemlists for those accounts.</p>
+                        <p>After you have configured your itemlist and account_map you can run the app by navigating to the directory which contains main.py and typing "python main.py" in the terminal. This will start the main loop and you will be asked for input.</p>
+                        <p>(assuming you have named your account 'R' in the variable account_map).
+                                COMMANDS:
+                                To DISPLAY:
+                                R DISPLAY.  This displays colorful text to the console.
+                                R READ. This causes your computer to read out the items you haven't done for account 'R'.</p>
+                        <p>To UPDATE:
+                                R item-name quantity. EX: R AGS 5. This updates the itemlist of account 'R' to reflect you bought 5 AGSs.
+                                R SPEECH. This will stall and allow you to say out loud the items you have purchased.</p>
+                </div>
+            </div>
+            <div class = nonHeaderSection>
+                    <div class = 'individualSection'>
+                        <h4 class="sectionHeaders"> Software Used</h4>
+                        <hr>
+                        <ul>
+                                <li>colorama. Used for fancy colors in terminal</li>
+                                <li>pyttsx. Used for text to speech</li>
+                                <li>SpeechRecogniton. Used for speech to text.</li>
+                        </ul>
+                        
                 </div>
             </div>
     </div>
