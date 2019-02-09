@@ -78,6 +78,17 @@
                                 To start, here is a picture of the database schema
                             </p>
                             <img style="max-width:80%" src="DBSCHEMA.png">
+                            <p>
+                                There are 5 tables: <b>equipment</b> contains the name and description of a 
+                                peice of equipment. <b>location</b> contains a floor and room number.
+                                <b>body_parts_targeted</b> contains the name of bodyparts that you can workout, like 
+                                "chest","calves",etc. The rest of the tables contain foreign keys, defining relationships
+                                between the other tables. <b>location_equipment</b> contains references to individual 
+                                locations and their corresponding equipment. This allows me to query a table and find out where
+                                "bench press" is located, for example. <b>equipment_body_parts</b> contains references to
+                                equipment and bodyparts so I can query it and find out all the equipment that works out a certain 
+                                muscle group.
+                            </p>
                     </div>
                 </div>
 
