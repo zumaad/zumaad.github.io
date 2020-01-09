@@ -204,6 +204,7 @@ input, select, textarea {
 
 	p, ul, ol, dl, table {
 		margin-bottom: 2em;
+		color: rgb(255, 231, 183);
 	}
 
 	br.clear {
@@ -2252,7 +2253,6 @@ input, select, textarea {
 			}
 
 			#main > section.two {
-				font: rgb(48, 43, 33);
 				background-color: rgb(45, 40, 31);
 			}
 
