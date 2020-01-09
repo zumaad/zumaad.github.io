@@ -2252,6 +2252,7 @@ input, select, textarea {
 			}
 
 			#main > section.two {
+				font: rgb(48, 43, 33);
 				background-color: rgb(45, 40, 31);
 			}
 
