@@ -112,7 +112,7 @@ input, select, textarea {
 
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: 300;
-		color: #666;
+		color: rgb(193, 191, 187);;
 		line-height: 1.5em;
 	}
 
@@ -1985,7 +1985,7 @@ input, select, textarea {
 	}
 
 		.item header {
-			background: #fff;
+			background: rgb(25, 25, 25);;
 			margin: 0;
 			padding: 1em 0 1em 0;
 			font-size: 0.8em;
@@ -2256,11 +2256,11 @@ input, select, textarea {
 			}
 
 			#main > section.three {
-				background-color: rgb(26, 36, 36);
+				background-color: rgb(30, 35, 35);
 			}
 
 			#main > section.four {
-				background-color: rgb(26, 36, 36);
+				background-color: rgb(35, 35, 35);
 			}
 
 /* Wide */
