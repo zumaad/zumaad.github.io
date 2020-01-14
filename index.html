@@ -80,6 +80,29 @@
 							</div>
 							
 							<p>Software Engineer co op | July 2019 - December 2019 </p>
+							
+							<ul style="text-align: left;">
+								<li>Re engineered data pipeline [ Kafka, Kubernetes, Docker, Python, Logstash ]</li>
+								<ul class="smallText">
+									<li>Sunsetted our RabbitMQ messaging infrastructure handling TBs of data a day and replaced it with a fault tolerant and reliable Kafka deployment</li>
+									<li>Made all Python data consumers/producers interface with kafka, implemented lost functionality from the switch to Kafka (dead letter exchanges), refactored consumers/producers and enforced a common interface</li>
+									<li>Created base classes for consumers/producers to avoid repeated logic like set up and error handling, handle background tasks, and use multithreading for consumption causing consumption rates to improve by ~25%</li>
+								</ul>
+								
+								<li>Created the AutoSoc [ Python, Flask, Swagger, Angular, Postgres, Docker, Kubernetes, Jira ]</li>
+								<ul class="smallText">
+									<li>Developed an automated response system for certain internal security alerts that sent questionnaires to employees in response to alerts involving them and escalated/handled security tickets automatically based on their response.</li>
+									<li>Created a notification service that aggregated all our notification functionality and exposed it behind a web api</li>
+								</ul>
+								
+								<li>Developed interactive dmarc dashboard [ Python, Javascript, Postgres, Docker, Kubernetes ]</li>
+								<ul class="smallText">
+									<li>Made an interactive graph based UI to help other business units see what emails they sent failed dmarc validation</li>
+									<li>Developed a parser that interprets and persists dmarc reports with automatic emails about its parsing success/failure and how to improve it.</li>
+								</ul>
+							</ul>
+							
+							
 							<img src="images/kafkaLogo.png">
 							<img src="images/postgresLogo.png"> 
 							<img src="images/pythonLogo.png">
