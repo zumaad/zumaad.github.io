@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Zumaad Khan</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>  -->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<!-- <link rel="shortcut icon" type="image/x-icon" href="favicon.png"> -->
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+		<meta property="og:image" content="https://zumaad.me/profile.png" />
+
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<div id="header">
+
+				<div class="top">
+
+					<!-- Logo -->
+						<div id="logo">
+							<span class="image avatar48"><img src="images/profile.png" alt="" /></span>
+							<h1 id="title">Zumaad Khan</h1>
+							<p>Software Engineer</p>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
+								<li><a href="Resume.pdf" id="resume-link"><span class="icon solid fa-file-pdf">Resume</span></a></li>
+								<li><a href="#work" id="portfolio-link"><span class="icon solid fa-list">Work Experience</span></a></li>
+								<li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">My Projects!</span></a></li>
+								<li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
+								<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
+								
+							</ul>
+						</nav>
+
+				</div>
+
+				<div class="bottom">
+
+					<!-- Social Icons -->
+						<ul class="icons">
+							<li><a href="https://github.com/zumaad" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							
+						</ul>
+
+				</div>
+
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Intro -->
+					<section id="top" class="one dark cover">
+						<div class="container">
+
+							<header>
+								
+								<h2 class="alt">Hi! I'm <strong>Zumaad</strong>.</h2>
+								<p>I'm currently a third year CS student at NEU </p>
+								
+							</header>
+
+							<footer>
+								<a href="Resume.pdf" class="button scrolly"> Click for my Resume!</a>
+							</footer>
+
+						</div>
+					</section>
+
+					<section id="work" class="three">
+						<div class="container">
+							<header>
+								<h2>Work Experience</h2>
+							</header>
+							<div style="text-align: center;">
+								<img src="images/tripadvisorLogo.png" /> 
+							</div>
+							
+							<p>Software Engineer co op | July 2019 - December 2019 </p>
+							
+							<ul style="text-align: left;">
+								<li>Re-Engineered Data Pipeline​ ​<span class="smallText">(Kafka, Kubernetes, Docker, Python, Logstash)</span></li>
+								<ul class="smallText">
+									<li>Sunsetted RabbitMQ messaging infrastructure handling TBs of data a day and replaced it with fault tolerant and reliable Kafka deployment</li>
+									<li>Migrated data consumers and producers to new Kafka interface and implemented lost dead letter functionality resulting from switch to new message broker system</li>
+									<li>Created base classes for consumers/producers to avoid repeated logic, handle background tasks, and leverage multithreading for consumption causing​ ​consumption rates to improve by ~25%</li>
+								</ul>
+								
+								<li>Created AutoSoc​ <span class="smallText">(Python, Flask, Swagger, Angular, Postgres, Docker, Kubernetes, Jira)</span></li>
+								<ul class="smallText">
+									<li>Developed an automated response system for internal security alerts that sends questionnaires to relevant employees and
+										escalates or handles security tickets automatically based on their response</li>
+									<li>Created fail safe for alerts that couldn’t be handled by alerting analysts along with linking questionnaires to jira tickets in the
+										backend and automatically populating them with relevant information as it arrived</li>
+									<li>Built customizable notification service that aggregated all in-house messaging functionality and exposed it behind Web API</li>
+								</ul>
+								
+								<li>Developed Interactive DMARC Dashboard​<span class="smallText"> (Python, Javascript, Postgres, Docker, Kubernetes)</span>​ </li>
+								<ul class="smallText">
+									<li>Developed interactive graph-based UI with ability to filter results based on domain, business unit, and email subject to help
+										business units see what emails they sent failed DMARC validation</li>
+									<li>Designed and deployed parser in Kubernetes to interpret and persist DMARC reports with automatic emails containing parsing
+										status and suggestions to improve parsing success rate</li>
+								</ul>
+							</ul>
+							
+							
+							<img src="images/kafkaLogo.png">
+							<img src="images/postgresLogo.png"> 
+							<img src="images/pythonLogo.png">
+							<img src="images/flaskLogo.png">
+							<img src="images/dockerLogo.png">
+							<img src="images/kubernetesLogo.png">
+						</div>
+					</section>
+
+				<!-- Portfolio -->
+					<section id="portfolio" class="two">
+						<div class="container">
+
+							<header>
+								<h2>My Projects!</h2>
+							</header>
+
+							<p>Some of the stuff i've worked on in my free time.</p>
+							
+							<div class="row">
+								<div class="col-4 col-12-mobile">
+									<article class="item">
+										<a href="https://github.com/recursive-brothers/TerminalMessenger" class="image fit"><img src="images/terminalMessenger2.png" alt="" /></a>
+										<header>
+											<h3>Terminal Messenger</h3>
+										</header>
+									</article>
+
+									<article class="item">
+										<a href="https://github.com/zumaad/Tweetlyze.info" class="image fit"><img src="images/twittergraph.png" alt="" /></a>
+										<header>
+											<h3>Tweetlyze</h3>
+										</header>
+									</article>
+									<article class="item">
+										<a href="https://github.com/zumaad/NEUgymNavigator" class="image fit"><img src="images/navigator.png" alt="" /></a>
+										<header>
+											<h3> NEU gym navigator</h3>
+										</header>
+									</article>
+								</div>
+
+								<div class="col-4 col-12-mobile">
+									
+									<article class="item">
+										<a href="https://github.com/zumaad/my_http_server"><img src="images/pyrverlogo.png" alt="" /></a>
+										<header>
+											<h3>pyrver- a python web server from scratch</h3>
+										</header>
+									</article>
+									<article class="item">
+										<a href="https://github.com/zumaad/SchedulingFor.me" class="image fit"><img src="images/overallView.png" alt="" /></a>
+										<header>
+											<h3>SchedulingFor.Me</h3>
+										</header>
+									</article>
+								</div>
+								<div class="col-4 col-12-mobile">
+									<article class="item">
+										<a href="https://github.com/zumaad/Remote-Control-Roach-Destroyer" class="image fit"><img src="images/sonicScreenshot.png" alt="" /></a>
+										<header>
+											<h3>Raspberry pi sonar and camera bot</h3>
+										</header>
+									</article>
+									<article class="item">
+										<a href="https://github.com/zumaad/predictive_keyboard_RNN" class="image fit"><img src="images/prediction.png" alt="" /></a>
+										<header>
+											<h3>Predictive Keyboard using RNNs</h3>
+										</header>
+									</article>
+									<article class="item">
+										<a href="https://github.com/zumaad/virtualCommodityInvestmentTracker" class="image fit"><img src="images/virtualcommodity.png" alt="" /></a>
+										<header>
+											<h3>Virtual Commodity Investor</h3>
+										</header>
+									</article>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+					
+
+				<!-- About Me -->
+					<section id="about" class="three">
+						<div class="container">
+
+							<header>
+								<h2>About Me</h2>
+							</header>
+							
+							<a class = "button" href="Resume.pdf" style="margin-bottom: 30px;"> My Resume</a>
+							
+
+							<!-- <a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a> -->
+
+							<p>
+								I'm currently a third year CS student at NEU. I like building things (currently working
+								on making a terminal based messaging platform with my friend and I'm also making a pure python web server with features
+								such as load balancing, serving static files, etc). Most of these projects are just to learn more new tech/concepts, get better
+								at programming, and have fun :) I'm also an avid MMA fan and enjoy weightlifting. 
+							</p>
+						</div>
+					</section>
+
+				<!-- Contact -->
+					<section id="contact" class="four">
+						<div class="container">
+
+							<header>
+								<h2>Contact</h2>
+							</header>
+							<p><a class="icon solid fa-envelope"></a> -> khanzumaad@gmail.com</p>
+							<p> <a href="https://github.com/zumaad" class="icon brands fa-github"></a> </p>
+							<p> <a href="https://www.linkedin.com/in/zumaad-khan-629a07177" class="fab fa-linkedin"></a></p>
+						</div>
+					</section>
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+
+				<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+			</div>
+
+		<!-- Scripts -->
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
