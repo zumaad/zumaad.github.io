@@ -87,28 +87,14 @@
 							<p>Software Engineer co op | July 2019 - December 2019 </p>
 							
 							<ul style="text-align: left;">
-								<li>Re-Engineered Data Pipeline​ ​<span class="smallText">(Kafka, Kubernetes, Docker, Python, Logstash)</span></li>
 								<ul class="smallText">
-									<li>Sunsetted RabbitMQ messaging infrastructure handling TBs of data a day and replaced it with fault tolerant and reliable Kafka deployment</li>
-									<li>Migrated data consumers and producers to new Kafka interface and implemented lost dead letter functionality resulting from switch to new message broker system</li>
-									<li>Created base classes for consumers/producers to avoid repeated logic, handle background tasks, and leverage multithreading for consumption causing​ ​consumption rates to improve by ~25%</li>
-								</ul>
-								
-								<li>Created AutoSoc​ <span class="smallText">(Python, Flask, Swagger, Angular, Postgres, Docker, Kubernetes, Jira)</span></li>
-								<ul class="smallText">
-									<li>Developed an automated response system for internal security alerts that sends questionnaires to relevant employees and
-										escalates or handles security tickets automatically based on their response</li>
-									<li>Created fail safe for alerts that couldn’t be handled by alerting analysts along with linking questionnaires to jira tickets in the
-										backend and automatically populating them with relevant information as it arrived</li>
-									<li>Built customizable notification service that aggregated all in-house messaging functionality and exposed it behind Web API</li>
-								</ul>
-								
-								<li>Developed Interactive DMARC Dashboard​<span class="smallText"> (Python, Javascript, Postgres, Docker, Kubernetes)</span>​ </li>
-								<ul class="smallText">
-									<li>Developed interactive graph-based UI with ability to filter results based on domain, business unit, and email subject to help
-										business units see what emails they sent failed DMARC validation</li>
-									<li>Designed and deployed parser in Kubernetes to interpret and persist DMARC reports with automatic emails containing parsing
-										status and suggestions to improve parsing success rate</li>
+									<li>Worked on the cybersecurity team responsible for analyzing and handling billions of events a day across TripAdvisor internal and external network infrastructure</li>
+									<li>Migrated production cybersecurity pipeline handling 40k events/sec from RabbitMQ to Kafka and built a library to abstract pipeline interactions</li>
+									<li>Increased pipeline throughput by 25% by creating a library that offered optimizations such as asynchronous message processing for consumers, thread based parallelism, and a task queue system</li>
+									<li>Developed an automated response system for security alerts responsible for resolving or escalating security issues</li>
+									<li>Built notification service that aggregated all in-house messaging services </li>
+									<li>Developed interactive graph-based UI to help other business units investigate which emails failed security validation.</li>
+									<li><i>Utilized</i>: Python, Kafka, Kubernetes, Postgres, Flask, Docker, Logstash, Angular	</li>
 								</ul>
 							</ul>
 							
